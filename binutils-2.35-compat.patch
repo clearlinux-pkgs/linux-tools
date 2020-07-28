@@ -1,0 +1,21 @@
+`nm -D ...` emits symbol versions when present, as of version 2.35, but the
+version script format doesn't appear to accept the symbol versions. Instead, ld
+errors out with:
+
+/usr/bin/ld:/builddir/build/BUILD/linux-5.6/tools/lib/traceevent/plugins/libtraceevent-dynamic-list:2: ignoring invalid character `@' in script
+/usr/bin/ld:/builddir/build/BUILD/linux-5.6/tools/lib/traceevent/plugins/libtraceevent-dynamic-list:2: ignoring invalid character `@' in script
+/usr/bin/ld:/builddir/build/BUILD/linux-5.6/tools/lib/traceevent/plugins/libtraceevent-dynamic-list:2: syntax error in dynamic list
+
+
+diff -ru linux-5.6~/tools/lib/traceevent/plugins/Makefile linux-5.6/tools/lib/traceevent/plugins/Makefile
+--- linux-5.6~/tools/lib/traceevent/plugins/Makefile	2020-03-29 15:25:41.000000000 -0700
++++ linux-5.6/tools/lib/traceevent/plugins/Makefile	2020-07-28 13:15:40.972351008 -0700
+@@ -197,7 +197,7 @@
+ 	xargs echo "U w W" | tr 'w ' 'W\n' | sort -u | xargs echo`;\
+ 	if [ "$$symbol_type" = "U W" ];then				\
+ 		(echo '{';                                              \
+-		$(NM) -u -D $1 | awk 'NF>1 {print "\t"$$2";"}' | sort -u;\
++		$(NM) -u -D $1 | sed 's/@@.*//' | awk 'NF>1 {print "\t"$$2";"}' | sort -u;\
+ 		echo '};';                                              \
+ 		) > $2;                                                 \
+ 	else                                                            \

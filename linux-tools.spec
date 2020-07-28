@@ -1,6 +1,6 @@
 Name:           linux-tools
 Version:        5.6
-Release:        427
+Release:        428
 License:        GPL-2.0
 Summary:        The Linux kernel tools (perf)
 Url:            http://www.kernel.org/
@@ -45,6 +45,7 @@ Patch1: turbostat.patch
 Patch2: vmlinux-location.patch
 Patch3: 0001-Filter-out-link-time-optimization.patch
 Patch4: 0001-Make-python-config-call-python3.8-compatable.patch
+Patch5: binutils-2.35-compat.patch
 
 %description
 The Linux kernel tools perf/trace.
@@ -63,6 +64,7 @@ Linux kernel hyperv daemon files
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
 %build
 export AR=gcc-ar
