@@ -1,11 +1,11 @@
 Name:           linux-tools
-Version:        5.6
+Version:        5.8
 Release:        429
 License:        GPL-2.0
 Summary:        The Linux kernel tools (perf)
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.6.tar.xz
+Source0:        https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.8.tar.xz
 
 Requires: binutils
 
@@ -59,12 +59,12 @@ Group:          kernel
 Linux kernel hyperv daemon files
 
 %prep
-%setup -q -n linux-5.6
+%setup -q -n linux-5.8
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
-%patch4 -p1
-%patch5 -p1
+#%patch4 -p1
+#%patch5 -p1
 
 %build
 export AR=gcc-ar
