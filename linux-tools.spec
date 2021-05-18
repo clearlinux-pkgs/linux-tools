@@ -147,7 +147,7 @@ chmod 0644 %{buildroot}/usr/share/man/man8/*
 /usr/bin/perf
 /usr/bin/intel-speed-select
 /usr/libexec/perf-core
-/usr/lib64/traceevent/plugins/
+%exclude /usr/lib64/traceevent/plugins/
 /usr/share/bash-completion/completions/*
 /usr/bin/turbostat
 /usr/share/man/man8/turbostat.8
