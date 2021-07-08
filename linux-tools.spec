@@ -1,11 +1,11 @@
 Name:           linux-tools
-Version:        5.9
+Version:        5.13
 Release:        483
 License:        GPL-2.0
 Summary:        The Linux kernel tools (perf)
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.9.tar.xz
+Source0:        https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.13.tar.xz
 
 Requires: binutils
 
@@ -41,7 +41,6 @@ BuildRequires:  babeltrace-dev
 BuildRequires:  zstd-dev
 BuildRequires:  libcap-dev
 
-Patch1: turbostat.patch
 Patch2: vmlinux-location.patch
 Patch3: 0001-Filter-out-link-time-optimization.patch
 
@@ -57,8 +56,7 @@ Group:          kernel
 Linux kernel hyperv daemon files
 
 %prep
-%setup -q -n linux-5.9
-%patch1 -p1
+%setup -q -n linux-5.13
 %patch2 -p1
 %patch3 -p1
 

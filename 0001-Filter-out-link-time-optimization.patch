@@ -1,25 +1,10 @@
-From 3275258b2e0f0121a18480d31211e65fd476af34 Mon Sep 17 00:00:00 2001
-From: Leandro Dorileo <leandro.maciel.dorileo@intel.com>
-Date: Thu, 19 Dec 2019 13:23:28 -0800
-Subject: [PATCH] Filter out link-time optimization
-
-Signed-off-by: Leandro Dorileo <leandro.maciel.dorileo@intel.com>
----
- tools/perf/Makefile.config | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
-index 89ac5a1f1..e80a43dc0 100644
---- a/tools/perf/Makefile.config
-+++ b/tools/perf/Makefile.config
-@@ -683,6 +683,7 @@ else
-   PERL_EMBED_LIBADD = $(call grep-libs,$(PERL_EMBED_LDOPTS))
+--- linux-5.13/tools/perf/Makefile.config~	2021-06-27 22:21:11.000000000 +0000
++++ linux-5.13/tools/perf/Makefile.config	2021-07-08 21:35:57.013352202 +0000
+@@ -769,6 +769,7 @@
    PERL_EMBED_CCOPTS = $(shell perl -MExtUtils::Embed -e ccopts 2>/dev/null)
    PERL_EMBED_CCOPTS := $(filter-out -specs=%,$(PERL_EMBED_CCOPTS))
+   PERL_EMBED_CCOPTS := $(filter-out -flto=auto -ffat-lto-objects, $(PERL_EMBED_CCOPTS))
 +  PERL_EMBED_CCOPTS := $(filter-out -flto%,$(PERL_EMBED_CCOPTS))
    PERL_EMBED_LDOPTS := $(filter-out -specs=%,$(PERL_EMBED_LDOPTS))
    FLAGS_PERL_EMBED=$(PERL_EMBED_CCOPTS) $(PERL_EMBED_LDOPTS)
  
--- 
-2.24.1
-
