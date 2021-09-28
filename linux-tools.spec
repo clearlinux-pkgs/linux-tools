@@ -1,11 +1,11 @@
 Name:           linux-tools
-Version:        5.13
-Release:        500
+Version:        5.14
+Release:        501
 License:        GPL-2.0
 Summary:        The Linux kernel tools (perf)
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.13.tar.xz
+Source0:        https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.14.tar.xz
 
 Requires: binutils
 
@@ -26,6 +26,7 @@ BuildRequires:  libunwind-dev
 BuildRequires:  libunwind-dev32
 BuildRequires:  zlib-dev
 BuildRequires:  xz-dev
+BuildRequires:  lzo-dev lz4-dev
 BuildRequires:  numactl-dev
 BuildRequires:  perl
 BuildRequires:  xmlto
@@ -56,7 +57,7 @@ Group:          kernel
 Linux kernel hyperv daemon files
 
 %prep
-%setup -q -n linux-5.13
+%setup -q -n linux-5.14
 %patch2 -p1
 %patch3 -p1
 
@@ -168,6 +169,7 @@ chmod 0644 %{buildroot}/usr/share/man/man8/*
 /usr/lib/perf/include/bpf/linux/socket.h
 /usr/lib/perf/include/bpf/pid_filter.h
 /usr/lib/perf/include/bpf/unistd.h
+/usr/include/perf/perf_dlfilter.h
 
 %files hyperv
 /usr/bin/hv_fcopy_daemon
