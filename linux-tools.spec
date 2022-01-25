@@ -1,11 +1,11 @@
 Name:           linux-tools
-Version:        5.15
+Version:        5.16
 Release:        510
 License:        GPL-2.0
 Summary:        The Linux kernel tools (perf)
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.15.tar.xz
+Source0:        https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.16.tar.xz
 
 Requires: binutils
 
@@ -57,7 +57,7 @@ Group:          kernel
 Linux kernel hyperv daemon files
 
 %prep
-%setup -q -n linux-5.15
+%setup -q -n linux-5.16
 %patch2 -p1
 %patch3 -p1
 
