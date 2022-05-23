@@ -1,11 +1,11 @@
 Name:           linux-tools
-Version:        5.16
+Version:        5.18
 Release:        526
 License:        GPL-2.0
 Summary:        The Linux kernel tools (perf)
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.16.tar.xz
+Source0:        https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.18.tar.xz
 
 Requires: binutils
 
@@ -41,6 +41,7 @@ BuildRequires:  python3
 BuildRequires:  babeltrace-dev
 BuildRequires:  zstd-dev
 BuildRequires:  libcap-dev
+BuildRequires:  libnfnetlink-dev libnl-dev
 
 Patch2: vmlinux-location.patch
 Patch3: 0001-Filter-out-link-time-optimization.patch
@@ -57,7 +58,7 @@ Group:          kernel
 Linux kernel hyperv daemon files
 
 %prep
-%setup -q -n linux-5.16
+%setup -q -n linux-5.18
 %patch2 -p1
 %patch3 -p1
 
