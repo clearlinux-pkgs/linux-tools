@@ -1,6 +1,6 @@
 Name:           linux-tools
 Version:        5.18
-Release:        528
+Release:        529
 License:        GPL-2.0
 Summary:        The Linux kernel tools (perf)
 Url:            http://www.kernel.org/
