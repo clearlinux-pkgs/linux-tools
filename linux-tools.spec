@@ -1,6 +1,6 @@
 Name:           linux-tools
 Version:        5.19
-Release:        531
+Release:        532
 License:        GPL-2.0
 Summary:        The Linux kernel tools (perf)
 Url:            http://www.kernel.org/
