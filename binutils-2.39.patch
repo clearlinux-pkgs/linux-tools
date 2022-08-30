@@ -20,14 +20,3 @@
  	info.arch = bfd_get_arch(bfdf);
  	info.mach = bfd_get_mach(bfdf);
  	info.buffer = image;
---- linux-5.19/tools/bpf/bpf_jit_disasm.c~	2022-07-31 21:03:01.000000000 +0000
-+++ linux-5.19/tools/bpf/bpf_jit_disasm.c	2022-08-30 20:49:26.700870055 +0000
-@@ -64,7 +64,7 @@
- 	assert(bfdf);
- 	assert(bfd_check_format(bfdf, bfd_object));
- 
--	init_disassemble_info(&info, stdout, (fprintf_ftype) fprintf);
-+	init_disassemble_info(&info, stdout, (fprintf_ftype) fprintf, NULL);
- 	info.arch = bfd_get_arch(bfdf);
- 	info.mach = bfd_get_mach(bfdf);
- 	info.buffer = image;
