@@ -1,11 +1,11 @@
 Name:           linux-tools
-Version:        5.19
+Version:        6.0
 Release:        537
 License:        GPL-2.0
 Summary:        The Linux kernel tools (perf)
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.19.tar.xz
+Source0:        https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.0.tar.xz
 
 Requires: binutils
 
@@ -43,7 +43,7 @@ BuildRequires:  zstd-dev
 BuildRequires:  libcap-dev
 BuildRequires:  libnfnetlink-dev libnl-dev
 
-Patch1: binutils-2.39.patch
+#Patch1: binutils-2.39.patch
 Patch2: vmlinux-location.patch
 Patch3: 0001-Filter-out-link-time-optimization.patch
 
@@ -59,8 +59,8 @@ Group:          kernel
 Linux kernel hyperv daemon files
 
 %prep
-%setup -q -n linux-5.19
-%patch1 -p1
+%setup -q -n linux-6.0
+#patch1 -p1
 %patch2 -p1
 %patch3 -p1
 
