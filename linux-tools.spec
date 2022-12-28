@@ -1,11 +1,11 @@
 Name:           linux-tools
-Version:        6.0
+Version:        6.1
 Release:        540
 License:        GPL-2.0
 Summary:        The Linux kernel tools (perf)
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.0.tar.xz
+Source0:        https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.1.tar.xz
 
 Requires: binutils
 
@@ -43,6 +43,10 @@ BuildRequires:  zstd-dev
 BuildRequires:  libcap-dev
 BuildRequires:  libnfnetlink-dev libnl-dev
 
+%define debug_package %{nil}
+%define __strip /bin/true
+
+
 #Patch1: binutils-2.39.patch
 Patch2: vmlinux-location.patch
 Patch3: 0001-Filter-out-link-time-optimization.patch
@@ -59,7 +63,7 @@ Group:          kernel
 Linux kernel hyperv daemon files
 
 %prep
-%setup -q -n linux-6.0
+%setup -q -n linux-6.1
 #patch1 -p1
 %patch2 -p1
 %patch3 -p1
@@ -69,7 +73,7 @@ export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export GCC_IGNORE_WERROR=1
-export CFLAGS="$CFLAGS -I/usr/include/python3.8/ -fcommon"
+export CFLAGS="$CFLAGS -I/usr/include/python3.8/ -fcommon  -gno-variable-location-views -gno-column-info -femit-struct-debug-baseonly -gz"
 
 unset LD_AS_NEEDED
 BuildTools() {
