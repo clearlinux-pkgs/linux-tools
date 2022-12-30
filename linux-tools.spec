@@ -73,7 +73,7 @@ export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export GCC_IGNORE_WERROR=1
-export CFLAGS="$CFLAGS -I/usr/include/python3.8/ -fcommon  -gno-variable-location-views -gno-column-info -femit-struct-debug-baseonly -gz"
+export CFLAGS="$CFLAGS -I/usr/include/python3.8/ -fcommon  -gno-variable-location-views -gno-column-info -femit-struct-debug-baseonly -gz -g1"
 
 unset LD_AS_NEEDED
 BuildTools() {
