@@ -1,11 +1,11 @@
 Name:           linux-tools
-Version:        6.1
+Version:        6.2
 Release:        551
 License:        GPL-2.0
 Summary:        The Linux kernel tools (perf)
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.1.tar.xz
+Source0:        https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.2.tar.xz
 
 Requires: binutils
 
@@ -42,6 +42,7 @@ BuildRequires:  babeltrace-dev
 BuildRequires:  zstd-dev
 BuildRequires:  libcap-dev
 BuildRequires:  libnfnetlink-dev libnl-dev
+BuildRequires:  libtraceevent-dev
 
 %define debug_package %{nil}
 %define __strip /bin/true
@@ -63,7 +64,7 @@ Group:          kernel
 Linux kernel hyperv daemon files
 
 %prep
-%setup -q -n linux-6.1
+%setup -q -n linux-6.2
 #patch1 -p1
 %patch2 -p1
 %patch3 -p1
@@ -73,7 +74,12 @@ export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export GCC_IGNORE_WERROR=1
-export CFLAGS="$CFLAGS -I/usr/include/python3.8/ -fcommon  -gno-variable-location-views -gno-column-info -femit-struct-debug-baseonly -gz -g1"
+export CFLAGS="$CFLAGS -I/usr/include/python3.11/ -fcommon  -gno-variable-location-views -gno-column-info -femit-struct-debug-baseonly -gz -g1"
+git init
+git add Makefile
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+git commit -a -m "dummy"
 
 unset LD_AS_NEEDED
 BuildTools() {
@@ -102,7 +108,7 @@ BuildHyperVDaemons
 
 %install
 export GCC_IGNORE_WERROR=1
-export CFLAGS="$CFLAGS -I/usr/include/python3.8/"
+export CFLAGS="$CFLAGS -I/usr/include/python3.11/"
 
 InstallTools() {
     pushd tools/perf
@@ -165,17 +171,10 @@ chmod 0644 %{buildroot}/usr/share/man/man8/*
 /usr/share/perf-core/strace/groups/file
 /usr/share/perf-core/strace/groups/string
 /usr/lib/perf/examples/bpf/5sec.c
-/usr/lib/perf/examples/bpf/augmented_syscalls.c
 /usr/lib/perf/examples/bpf/empty.c
 /usr/lib/perf/examples/bpf/hello.c
 /usr/lib/perf/examples/bpf/sys_enter_openat.c
-/usr/lib/perf/include/bpf/bpf.h
-/usr/lib/perf/include/bpf/stdio.h
 /usr/lib/perf/examples/bpf/augmented_raw_syscalls.c
-/usr/lib/perf/examples/bpf/etcsnoop.c
-/usr/lib/perf/include/bpf/linux/socket.h
-/usr/lib/perf/include/bpf/pid_filter.h
-/usr/lib/perf/include/bpf/unistd.h
 /usr/include/perf/perf_dlfilter.h
 
 %files hyperv
