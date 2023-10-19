@@ -1,6 +1,6 @@
 Name:           linux-tools
 Version:        6.5
-Release:        571
+Release:        572
 License:        GPL-2.0
 Summary:        The Linux kernel tools (perf)
 Url:            http://www.kernel.org/
@@ -65,9 +65,9 @@ Linux kernel hyperv daemon files
 
 %prep
 %setup -q -n linux-6.5
-#patch1 -p1
-%patch2 -p1
-%patch3 -p1
+#patch -P 1 -p1
+%patch -P 2 -p1
+%patch -P 3 -p1
 
 %build
 export AR=gcc-ar
