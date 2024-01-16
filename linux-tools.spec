@@ -1,11 +1,11 @@
 Name:           linux-tools
-Version:        6.5
+Version:        6.7
 Release:        577
 License:        GPL-2.0
 Summary:        The Linux kernel tools (perf)
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.5.tar.xz
+Source0:        https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.7.tar.xz
 
 Requires: binutils
 
@@ -64,7 +64,7 @@ Group:          kernel
 Linux kernel hyperv daemon files
 
 %prep
-%setup -q -n linux-6.5
+%setup -q -n linux-6.7
 #patch -P 1 -p1
 %patch -P 2 -p1
 %patch -P 3 -p1
@@ -170,11 +170,6 @@ chmod 0644 %{buildroot}/usr/share/man/man8/*
 /usr/share/man/man8/x86_energy_perf_policy.8
 /usr/share/perf-core/strace/groups/file
 /usr/share/perf-core/strace/groups/string
-/usr/lib/perf/examples/bpf/5sec.c
-/usr/lib/perf/examples/bpf/empty.c
-/usr/lib/perf/examples/bpf/hello.c
-/usr/lib/perf/examples/bpf/sys_enter_openat.c
-/usr/lib/perf/examples/bpf/augmented_raw_syscalls.c
 /usr/include/perf/perf_dlfilter.h
 
 %files hyperv
