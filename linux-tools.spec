@@ -85,7 +85,7 @@ unset LD_AS_NEEDED
 BuildTools() {
     pushd tools/perf
     rm -f tests/pe-file.exe*
-    make V=1 NO_GTK2=1 WERROR=0 PYTHON=/usr/bin/python3 PYTHON_CONFIG=/usr/bin/python3-config %{?sparse_mflags}
+    make V=1 NO_GTK2=1 WERROR=0 DEBUG=1 PYTHON=/usr/bin/python3 PYTHON_CONFIG=/usr/bin/python3-config %{?sparse_mflags}
     popd
     pushd tools/power/x86/turbostat
     make
