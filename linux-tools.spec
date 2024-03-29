@@ -25,7 +25,6 @@ BuildRequires:  slang-dev
 BuildRequires:  libunwind-dev
 BuildRequires:  libunwind-dev32
 BuildRequires:  zlib-dev
-BuildRequires:  xz-dev
 BuildRequires:  lzo-dev lz4-dev
 BuildRequires:  numactl-dev
 BuildRequires:  perl
