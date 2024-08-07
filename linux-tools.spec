@@ -1,11 +1,11 @@
 Name:           linux-tools
-Version:        6.7
+Version:        6.10
 Release:        597
 License:        GPL-2.0
 Summary:        The Linux kernel tools (perf)
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.7.tar.xz
+Source0:        https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.10.tar.xz
 
 Requires: binutils
 
@@ -63,7 +63,7 @@ Group:          kernel
 Linux kernel hyperv daemon files
 
 %prep
-%setup -q -n linux-6.7
+%setup -q -n linux-6.10
 #patch -P 1 -p1
 %patch -P 2 -p1
 %patch -P 3 -p1
@@ -136,7 +136,7 @@ InstallTools() {
 InstallHyperVDaemons() {
     pushd tools/hv
     mkdir -p %{buildroot}/usr/bin
-    cp hv_fcopy_daemon %{buildroot}/usr/bin
+#    cp hv_fcopy_daemon %{buildroot}/usr/bin
     cp hv_kvp_daemon %{buildroot}/usr/bin
     cp hv_vss_daemon %{buildroot}/usr/bin
     popd
@@ -159,7 +159,6 @@ chmod 0644 %{buildroot}/usr/share/man/man8/*
 /usr/bin/perf
 /usr/bin/intel-speed-select
 /usr/libexec/perf-core
-%exclude /usr/lib64/traceevent/plugins/
 /usr/share/bash-completion/completions/*
 /usr/bin/turbostat
 /usr/share/man/man8/turbostat.8
@@ -173,6 +172,5 @@ chmod 0644 %{buildroot}/usr/share/man/man8/*
 /usr/include/perf/perf_dlfilter.h
 
 %files hyperv
-/usr/bin/hv_fcopy_daemon
 /usr/bin/hv_kvp_daemon
 /usr/bin/hv_vss_daemon
