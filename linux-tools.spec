@@ -1,6 +1,6 @@
 Name:           linux-tools
 Version:        6.10
-Release:        608
+Release:        609
 License:        GPL-2.0
 Summary:        The Linux kernel tools (perf)
 Url:            http://www.kernel.org/
