@@ -1,11 +1,11 @@
 Name:           linux-tools
-Version:        6.10
+Version:        6.12
 Release:        610
 License:        GPL-2.0
 Summary:        The Linux kernel tools (perf)
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.10.tar.xz
+Source0:        https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.12.tar.xz
 
 Requires: binutils
 
@@ -63,7 +63,7 @@ Group:          kernel
 Linux kernel hyperv daemon files
 
 %prep
-%setup -q -n linux-6.10
+%setup -q -n linux-6.12
 #patch -P 1 -p1
 %patch -P 2 -p1
 %patch -P 3 -p1
